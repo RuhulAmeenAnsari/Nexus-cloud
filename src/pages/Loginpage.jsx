@@ -3,8 +3,8 @@ import { LogIn, User, KeyRound } from "lucide-react";
 
 const Loginpage = () => {
   return (
-    <div className="w-screen h-screen bg-[#0a0a0a] flex items-center justify-center ">
-      <div className="w-[450px] bg-gray-900/50 p-8 rounded-2xl border border-gray-800">
+    <div className="w-screen h-screen bg-[#0a0a0a] flex items-center  justify-center ">
+      <div className="w-[450px] bg-gray-900/50 p-8 rounded-2xl border mt-10 border-gray-800">
         <div className="flex justify-center">
           <User className="w-8 h-8 text-purple-500 mb-8" />
         </div>
@@ -37,7 +37,7 @@ const Loginpage = () => {
                 type="password"
                 placeholder="Enter your password"
               />
-              <User className="absolute left-3 top-6 w-5 h-5 text-gray-500" />
+              <KeyRound className="absolute left-3 top-6 w-5 h-5 text-gray-500" />
             </div>
           </div>
           <div className="flex items-center justify-between mb-6">
@@ -47,8 +47,9 @@ const Loginpage = () => {
             </div>
             <h1 className="text-purple-500">Forgot password</h1>
           </div>
-          <button className=" hover:cursor-pointer w-full p-3 rounded-[10px] bg-purple-500 mb-5 ">
-            Sign In
+          <button className=" hover:cursor-pointer hover:bg-purple-700 text-white flex gap-2 w-full items-center justify-center p-3 rounded-[10px] bg-purple-500 mb-5 ">
+          <LogIn className="w-5 h-5" />
+          <span>Sign in</span>
           </button>
           <p className="text-[1.2rem] text-gray-500 text-center">
             Don't have an account?{" "}
