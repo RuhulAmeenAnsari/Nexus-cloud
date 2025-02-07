@@ -9,7 +9,7 @@ const Loginpage = () => {
           <User className="w-8 h-8 text-purple-500 mb-8" />
         </div>
         <h2 className="text-3xl font-bold text-center mb-2 bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">
-          Welcome Back
+          Welcome Back Suraj
         </h2>
         <p className="text-gray-400 text-center mb-8">
           Sign in to continue your gaming journey
