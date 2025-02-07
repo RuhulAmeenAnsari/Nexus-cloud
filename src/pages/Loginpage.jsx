@@ -3,7 +3,7 @@ import { LogIn, User, KeyRound } from "lucide-react";
 
 const Loginpage = () => {
   return (
-    <div className="w-screen h-screen bg-[#0a0a0a] flex items-center justify-center ">
+    <div className="w-full h-screen bg-[#0a0a0a] flex items-center justify-center ">
       <div className="w-[450px] h-[500px] bg-gray-900/50 p-8 rounded-2xl border border-gray-800">
         <div className="flex justify-center">
           <User className="w-8 h-8 text-purple-500 mb-8" />

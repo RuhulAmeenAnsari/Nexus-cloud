@@ -1,6 +1,8 @@
 import React from "react";
 import { Gamepad2, Rocket, Cloud, Zap } from "lucide-react";
+import {Link} from "react-router-dom"
 import teaserfile1 from "../video/teaserfile1.mp4"
+import "@fontsource/poppins";
 
 function LandingPage() {
   return (
@@ -16,11 +18,11 @@ function LandingPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-6 h-full  items-center ">
            <div className="max-w-2xl mt-36">
            <h1  className="text-7xl  font-bold mb-6  bg-gradient-to-r from-purple-400 to-blue-600 bg-clip-text text-transparent">Cloud Gaming Redefined</h1>
-            <p className="text-white text-xl"> Play your favorite games instantly. No downloads, no waiting. Just
+            <p className="text-white text-xl font-poppins"> Play your favorite games instantly. No downloads, no waiting. Just
               pure gaming experience powered by cutting-edge cloud technology.
             </p>
             <div className="flex gap-6">
-                <button className="rounded-4xl px-5 py-3 mt-10 hover:cursor-pointer hover:bg-purple-700 font-bold text-l text-white bg-purple-600 w-44 flex items-center pl-8    "><Rocket className="w-5 h-5 mr-2" /><span>Get Started</span></button>
+                <Link to="/home"><button className="rounded-4xl px-5 py-3 mt-10 hover:cursor-pointer hover:bg-purple-700 font-bold text-l text-white bg-purple-600 w-44 flex items-center pl-8    "><Rocket className="w-5 h-5 mr-2" /><span>Get Started</span></button></Link>
                 <button className="rounded-4xl px-5 py-3 mt-10 hover:cursor-pointer hover:bg-purple-600 hover:text-white text-l font-bold text-purple-600  w-44 bg-transparent border-2 border-purple-600 ">Browse Games</button>
                 
             </div>

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { TowerControl as GameController, User, Search, X } from "lucide-react";
+import { Link } from "react-router-dom";
+import "@fontsource/poppins";
 
 function NavBar() {
   const [searchTerm, setSearchTerm] = useState("");
-
-  
 
   return (
     <>
@@ -13,9 +13,11 @@ function NavBar() {
           <div className="seprationdiv flex justify-between text-white">
             <div className="flex hover:cursor-pointer hover:scale-110 items-center ml-28 gap-3">
               <GameController className="w-8 h-8 text-purple-500" />
-              <span className="text-2xl font-bold bg-gradient-to-r bg-clip-text text-transparent from-purple-400 to-blue-600">
-                NexusCloud
-              </span>
+              <Link to="/">
+                <span className="text-2xl font-bold bg-gradient-to-r bg-clip-text text-transparent from-purple-400 to-blue-600">
+                  NexusCloud
+                </span>
+              </Link>
             </div>
             <div className="text-white flex gap-7 p-3 items-center mr-20 text-xl">
               <div className="flex items-center relative">
@@ -29,24 +31,25 @@ function NavBar() {
                 />
                 {searchTerm && (
                   <X
-                    onClick={()=>{
-                        setSearchTerm('')
-
+                    onClick={() => {
+                      setSearchTerm("");
                     }}
                     className="absolute mt-1 right-3 top-2.5 w-5 h-5 text-gray-400 hover:text-red-500 cursor-pointer"
                   />
                 )}
               </div>
-              <h1 className="text-[20px] opacity-70 hover:cursor-pointer hover:text-purple-500 transition-colors hover:scale-110">
-                games
+              <h1 className="text-[20px] opacity-70 font-poppins hover:cursor-pointer hover:text-purple-500 transition-colors hover:scale-110">
+                Games
               </h1>
-              <h1 className="text-[20px] opacity-70 hover:cursor-pointer hover:text-purple-500 transition-colors hover:scale-110">
-                categories
+              <h1 className="text-[20px] font-poppins opacity-70 hover:cursor-pointer hover:text-purple-500 transition-colors hover:scale-110">
+                Categories
               </h1>
-              <button className="bg-purple-500 rounded-4xl flex items-center gap-2 px-5 hover:cursor-pointer hover:bg-purple-700 py-1">
-                <User className="w-5 h-5" />
-                <span>Login</span>
-              </button>
+              <Link to="./login">
+                <button className="bg-purple-500 font-poppins rounded-4xl flex items-center gap-1 px-3 hover:cursor-pointer hover:bg-purple-700 py-1">
+                  <User className="w-5 h-5" />
+                  <span>Login</span>
+                </button>
+              </Link>
             </div>
           </div>
         </div>
