@@ -1,5 +1,6 @@
 import React from "react";
 import { LogIn, User, KeyRound } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Loginpage = () => {
   return (
@@ -53,7 +54,7 @@ const Loginpage = () => {
           </button>
           <p className="text-[1.2rem] text-gray-500 text-center">
             Don't have an account?{" "}
-            <span className="text-purple-500">Sign up</span>
+           <Link to='/signup'> <span className="text-purple-500">Sign up</span></Link>
           </p>
         </form>
       </div>
