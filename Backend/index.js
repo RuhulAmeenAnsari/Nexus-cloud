@@ -6,8 +6,16 @@ const userSchema = require("./models/user")
 
 app.use(cors())
 app.use(bodyParser.json())
-app.post('/signup', (req, res) => {
-    console.log(req.body);
-    res.send('server started')
+app.post('/signup', async (req, res) => {
+    const { email, name, password } = req.body
+    const user = await userSchema.create({
+        email,
+        name,
+        password
+    })
+    const userinfo = await user.save()
+    console.log(userinfo); 
+    res.json(userinfo)
+   
 })
 app.listen(5000)

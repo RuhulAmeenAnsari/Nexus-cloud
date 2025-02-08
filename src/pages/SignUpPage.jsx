@@ -27,7 +27,7 @@ const SignUpPage = () => {
         'Content-Type': 'application/json'
       }
     });
-    const data = await res.text()
+    const data = await res.json()
     console.log(data);
   };
 
