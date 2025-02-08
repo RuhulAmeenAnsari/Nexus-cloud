@@ -36,7 +36,7 @@ function HomePage() {
   return (
     <>
       <div className="main min-h-screen pt-16  bg-gray-950">
-        <div className="upperdiv h-[55vh] relative py-12 w-full bg-zinc-950 ">
+        <div className="upperdiv  relative py-12 w-full bg-zinc-950 ">
           <div className="px-28 ">
             <h1 className="text-3xl px-8 font-bold text-white font-poppins">Featured Games</h1>
             <p className=" font-poppins text-gray-400 px-8 mt-3">Play the most popular titles instantly</p>
@@ -45,7 +45,17 @@ function HomePage() {
             {featuredGames.map((game)=>(
             <div key={game.id} className="h-[230px]  w-[400px] mt-5 ">
                 <img src={game.image} alt={game.title} className="h-full w-full object-cover rounded-3xl " />
-                <div className="bg-gradient-to-t absolute inset-0 from-black/60 to-transparent rounded-3xl"/>
+                <div className="bg-gradient-to-t absolute inset-0 from-black/30 to-transparent rounded-3xl"/>
+                <div className="absolute bottom-0 z-10 mb-12 p-6">
+                  <h1 className="text-white mb-2 text-xl font-bold font-poppins">{game.title}</h1>
+                  <div className="flex items-center gap-3">
+                    <span className="text-purple-400 px-3 py-1 rounded-2xl bg-purple-600/20 text-sm">{game.genre}</span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-white">{game.rating}</span>
+                      <Trophy className="text-yellow-500 h-4 w-4"/>
+                    </div>
+                  </div>
+                </div>
                 
             </div>
             ))}

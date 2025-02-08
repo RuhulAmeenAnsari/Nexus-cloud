@@ -19,15 +19,15 @@ function NavBar() {
                 </span>
               </Link>
             </div>
-            <div className="text-white flex gap-7 p-3 items-center mr-20 text-xl">
+            <div className="text-white flex gap-7 p-4 items-center mr-20 text-[18px]">
               <div className="flex items-center relative">
-                <Search className="absolute mt-1 left-3 top-2.5 w-5 h-5 text-gray-400" />
+                <Search className="absolute mt-1 left-3 ml-3 top-2.5 w-5 h-5  text-gray-400" />
                 <input
                   type="text"
-                  placeholder="Search Games"
+                  placeholder="Search Games . . ."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="bg-gray-900/50 border border-gray-700 rounded-full px-4 py-2 pl-10 pr-10 focus:outline-none focus:border-purple-500 w-full"
+                  className="bg-gray-900/50 border border-gray-700 rounded-full px-3 py-2 pl-14 pr-10 focus:outline-none focus:border-purple-500 w-full"
                 />
                 {searchTerm && (
                   <X
@@ -38,14 +38,14 @@ function NavBar() {
                   />
                 )}
               </div>
-              <h1 className="text-[20px] opacity-70 font-poppins hover:cursor-pointer hover:text-purple-500 transition-colors hover:scale-110">
+              <h1 className="text-[18px] opacity-70 font-poppins hover:cursor-pointer hover:text-purple-500 transition-colors hover:scale-110">
                 Games
               </h1>
-              <h1 className="text-[20px] font-poppins opacity-70 hover:cursor-pointer hover:text-purple-500 transition-colors hover:scale-110">
+              <h1 className="text-[18px] font-poppins opacity-70 hover:cursor-pointer hover:text-purple-500 transition-colors hover:scale-110">
                 Categories
               </h1>
               <Link to="./login">
-                <button className="bg-purple-500 font-poppins rounded-4xl flex items-center gap-1 px-3 hover:cursor-pointer hover:bg-purple-700 py-1">
+                <button className="bg-purple-500 text-[18px] font-poppins rounded-4xl flex items-center gap-1 px-3 hover:cursor-pointer hover:bg-purple-700 py-1">
                   <User className="w-5 h-5" />
                   <span>Login</span>
                 </button>

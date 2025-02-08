@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar";
 import "@fontsource/poppins/400.css";
 import Loginpage from "./pages/Loginpage";
 import HomePage from "./pages/HomePage";
+import SignUpPage from "./pages/SignUpPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<Loginpage />} />
+      <Route path="/signup" element={<SignUpPage />} />
       <Route path="/home" element={<HomePage />} />
       </Routes>
       </Router>
