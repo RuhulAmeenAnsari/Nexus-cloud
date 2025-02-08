@@ -46,6 +46,16 @@ function HomePage() {
             <div key={game.id} className="h-[230px]  w-[400px] mt-5 ">
                 <img src={game.image} alt={game.title} className="h-full w-full object-cover rounded-3xl " />
                 <div className="bg-gradient-to-t absolute inset-0 from-black/30 to-transparent rounded-3xl"/>
+                <div className="absolute bottom-0 z-10 mb-12 p-6">
+                  <h1 className="text-white mb-2 text-xl font-bold font-poppins">{game.title}</h1>
+                  <div className="flex items-center gap-3">
+                    <span className="text-purple-400 px-3 py-1 rounded-2xl bg-purple-600/20 text-sm">{game.genre}</span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-white">{game.rating}</span>
+                      <Trophy className="text-yellow-500 h-4 w-4"/>
+                    </div>
+                  </div>
+                </div>
                 
             </div>
             ))}
