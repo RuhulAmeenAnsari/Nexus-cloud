@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { LogIn, User, KeyRound } from "lucide-react";
-import { Link } from "react-router-dom";
-import { use } from "react";
+import { Link, useNavigate } from "react-router-dom";;
+
 
 
 const Loginpage = () => {
-
+  const navigate = useNavigate();
+  const [error, setError] = useState("")
   const [formData, setformData] = useState({
     email: "",
     password: "",
@@ -16,26 +17,37 @@ const handleChange = (e) => {
 }
 const handleclick = async (e) => {
   e.preventDefault()
+  setError("");
+  // console.log(formData);
+  try {
+    const res = await fetch("http://localhost:5000/login", {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-  console.log(formData);
-  const res = await fetch("http://localhost:5000/login", {
-    method: "POST",
-    body: JSON.stringify(formData),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  const data = await res.json();
-  console.log(data);
-  setformData({ email: "", password: "" });
+    const data = await res.json();
+    console.log(data);
+
+    if (res.status === 200) {
+      // ✅ Save token to local storage (optional)
+      localStorage.setItem("token", data.token);
+
+      // ✅ Redirect to profile page after successful login
+      navigate("/home");
+    } else {
+      alert('Login failed. Please try again.')
+      setError(data.message || "Login failed. Please try again.");
+    }
+  } catch (err) {
+    setError("Server error. Please try again later.");
+  }
+
 }
-const getUser =async()=>{
-  const res = await fetch("http://localhost:5000/user", {
-    method: "GET",
-  });
-  const data = await res.json();
-  console.log(data);
-}
+
+  
 
 
   return (

@@ -33,22 +33,32 @@ app.post('/signup',  (req, res) => {
         })
     })   
 })
-app.post('/login', async (req, res) => {
-    const { email, password } = req.body
-    const user = await userSchema.findOne({email})   
-    if(!user){
-        res.json({message:"User not found"})
+app.post("/login", async (req, res) => {
+    try {
+      const { email, password } = req.body;
+  
+      if (!email || !password) {
+        return res.status(400).json({ message: "Please enter all fields" });
+      }
+  
+      const user = await userSchema.findOne({ email });
+      if (!user) {
+        return res.status(404).json({ message: "User not found!" });
+      }
+  
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch) {
+        return res.status(401).json({ message: "Invalid credentials!" });
+      }
+  
+      const token = jwt.sign({ email },"Super Secret Key");
+  
+      res.cookie("token", token);
+  
+      res.status(200).json({ message: "Login successful!", token });
+    } catch (error) {
+      res.status(500).json({ message: "Server error, please try again later." });
     }
-    bcrypt.compare(password,user.password,(err,result)=>{
-        if(result){
-            let token = jwt.sign({email},"secretkey")
-            res.cookie("token",token)
-            res.json({message:"Login Success"})
-        }else{
-            res.json({message:"Password not matched"})
-        }
-    })
-})
-
+  });
 
 app.listen(5000)
