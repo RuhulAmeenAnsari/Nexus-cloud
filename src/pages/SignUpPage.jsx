@@ -52,7 +52,7 @@ const SignUpPage = () => {
                 type="text"
                 name="name"
                 placeholder="Enter your name"
-                // required
+                required
                 value={formData.name}
                 onChange={handleChange}
               />
@@ -69,7 +69,7 @@ const SignUpPage = () => {
                 type="email"
                 placeholder="Enter your email"
                 name="email"
-                // required
+                required
                 value={formData.email}
                 onChange={handleChange}
               />
@@ -84,7 +84,7 @@ const SignUpPage = () => {
                 type="password"
                 placeholder="Create a password"
                 name="password"
-                // required
+                required
                 value={formData.password}
                 onChange={handleChange}
               />
