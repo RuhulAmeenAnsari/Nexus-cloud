@@ -22,17 +22,17 @@ const SignUpPage = () => {
     });
     const res = await fetch("http://localhost:5000/signup", {
       method: "POST",
-      body:JSON.stringify(formData),
-      headers:{
-        'Content-Type': 'application/json'
-      }
+      body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
-    const data = await res.json()
+    const data = await res.json();
     console.log(data);
   };
 
   return (
-    <div className="w-screen h-screen bg-[#0a0a0a] flex items-center justify-center">
+    <div className="w-screen h-screen  font-[Helvatica_Now_Display]  bg-[#0a0a0a] flex items-center justify-center">
       <div className="w-[450px] bg-gray-900/50 p-8 rounded-2xl border mt-14 border-gray-800">
         <div className="flex justify-center">
           <UserPlus className="w-8 h-8 text-purple-500 mb-8" />

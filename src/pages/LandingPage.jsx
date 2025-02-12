@@ -7,8 +7,8 @@ import "@fontsource/poppins";
 function LandingPage() {
   return (
     <>
-      <div className="bg-black h-full w-full">
-        <div className="relative h-screen overflow-hidden">
+      <div className="bg-black h-full font-[Helvetica_Now_Display] w-full">
+        <div className="relative min-h-screen overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-blue-900/20">
             <video
               autoPlay
@@ -30,7 +30,7 @@ function LandingPage() {
                 Just pure gaming experience powered by cutting-edge cloud
                 technology.
               </p>
-              <div className="flex gap-6">
+              <div className="flex flex-wrap gap-6">
                 <Link to="/home">
                   <button className="rounded-4xl px-5 py-3 mt-10 hover:cursor-pointer hover:bg-purple-700 font-bold text-l text-white bg-purple-600 w-44 flex items-center pl-8    ">
                     <Rocket className="w-5 h-5 mr-2" />
@@ -45,33 +45,30 @@ function LandingPage() {
           </div>
         </div>
         {/* ----------------------------------------------------------------- */}
-        <div className=" mt-16 h-[50vh] flex flex-wrap justify-evenly gap-4">
-          <div className="border-2 p-8 bg-gray-900/50  rounded-3xl border-gray-800 h-52 w-[25vw]">
-            <Cloud className="w-12 h-12 text-purple-500 mb-4" />
+        <div className="mt-16 py-12 px-6 grid grid-cols-1 md:grid-cols-3 gap-6 justify-center">
+          <div className="border-2 p-8 bg-gray-900/50 rounded-3xl border-gray-800 w-full text-center">
+            <Cloud className="w-12 h-12 text-purple-500 mb-4 mx-auto" />
             <h1 className="text-white my-2 text-xl font-bold">Cloud Powered</h1>
             <p className="text-white">
               Play instantly from any device with our powerful cloud
               infrastructure.
             </p>
           </div>
-          <div className="border-2 p-8 bg-gray-900/50  rounded-3xl border-gray-800 h-52 w-[25vw]">
-            <Gamepad2 className="w-12 h-12 text-purple-500 mb-4" />
-            <h1 className="text-white my-2 text-2xl font-bold">
-              {" "}
-              Vast Library
-            </h1>
+
+          <div className="border-2 p-8 bg-gray-900/50 rounded-3xl border-gray-800 w-full text-center">
+            <Gamepad2 className="w-12 h-12 text-purple-500 mb-4 mx-auto" />
+            <h1 className="text-white my-2 text-xl font-bold">Vast Library</h1>
             <p className="text-white">
-              {" "}
               Access hundreds of premium games from top publishers worldwide.
             </p>
           </div>
-          <div className="border-2 p-8 bg-gray-900/50  rounded-3xl border-gray-800 h-52 w-[25vw]">
-            <Zap className="w-12 h-12 text-purple-500 mb-4" />
-            <h1 className="text-white my-2 text-2xl font-bold">
-              Cloud Powered
+
+          <div className="border-2 p-8 bg-gray-900/50 rounded-3xl border-gray-800 w-full text-center">
+            <Zap className="w-12 h-12 text-purple-500 mb-4 mx-auto" />
+            <h1 className="text-white my-2 text-xl font-bold">
+              Ultra-Low Latency
             </h1>
             <p className="text-white">
-              {" "}
               Experience gaming with ultra-low latency and stunning graphics.
             </p>
           </div>
