@@ -1,57 +1,56 @@
 import React, { useState } from "react";
 import { LogIn, User, KeyRound } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";;
-
-
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const Loginpage = () => {
   const navigate = useNavigate();
-  const [error, setError] = useState("")
+  const { login } = useAuth();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const [formData, setformData] = useState({
     email: "",
     password: "",
-  })
-const handleChange = (e) => {
-  setformData(prevState => ({ ...prevState, [e.target.name]: e.target.value }));
+  });
 
-}
-const handleclick = async (e) => {
-  e.preventDefault()
-  setError("");
-  // console.log(formData);
-  try {
-    const res = await fetch("http://localhost:5000/login", {
-      method: "POST",
-      body: JSON.stringify(formData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+  const handleChange = (e) => {
+    setformData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
 
-    const data = await res.json();
-    console.log(data);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
 
-    if (res.status === 200) {
-      // ✅ Save token to local storage (optional)
-      localStorage.setItem("token", data.token);
+    try {
+      const result = await login(formData);
 
-      // ✅ Redirect to profile page after successful login
-      navigate("/home");
-    } else {
-      alert('Login failed. Please try again.')
-      setError(data.message || "Login failed. Please try again.");
+      if (result.success) {
+        // Get the user data from the login result
+        const userData = result.user;
+
+        // Check if the user is an admin
+        if (userData && userData.role === "admin") {
+          navigate("/admin");
+        } else {
+          navigate("/home");
+        }
+      } else {
+        setError(result.error || "Login failed. Please try again.");
+      }
+    } catch (err) {
+      console.error("Login error:", err);
+      setError("Login failed. Please try again.");
+    } finally {
+      setLoading(false);
     }
-  } catch (err) {
-    setError("Server error. Please try again later.");
-  }
-
-}
-
-  
-
+  };
 
   return (
-    <div className="w-screen h-screen  bg-[#0a0a0a] flex items-center  justify-center ">
+    <div className="w-screen h-screen bg-[#0a0a0a] flex items-center justify-center">
       <div className="w-[450px] bg-gray-900/50 p-8 rounded-2xl border mt-10 border-gray-800">
         <div className="flex justify-center">
           <User className="w-8 h-8 text-purple-500 mb-8" />
@@ -62,9 +61,14 @@ const handleclick = async (e) => {
         <p className="text-gray-400 text-center mb-8">
           Sign in to continue your gaming journey
         </p>
-        <form action="" className="">
+        {error && (
+          <div className="mb-4 p-3 bg-red-500/10 border border-red-500 rounded-lg text-red-500 text-center">
+            {error}
+          </div>
+        )}
+        <form onSubmit={handleSubmit} className="">
           <div className="mb-4">
-            <label className=" text-sm font-bold text-gray-300">
+            <label className="text-sm font-bold text-gray-300">
               Email Address
             </label>
             <div className="relative">
@@ -81,7 +85,7 @@ const handleclick = async (e) => {
             </div>
           </div>
           <div className="mb-4">
-            <label className=" text-sm font-bold text-gray-300">Password</label>
+            <label className="text-sm font-bold text-gray-300">Password</label>
             <div className="relative">
               <input
                 className="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 pl-10 focus:outline-none focus:border-purple-500 mt-2 text-white mb-5"
@@ -90,6 +94,7 @@ const handleclick = async (e) => {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="Enter your password"
+                required
               />
               <KeyRound className="absolute left-3 top-6 w-5 h-5 text-gray-500" />
             </div>
@@ -101,13 +106,19 @@ const handleclick = async (e) => {
             </div>
             <h1 className="text-purple-500">Forgot password</h1>
           </div>
-          <button onClick={handleclick} className=" hover:cursor-pointer hover:bg-purple-700 text-white flex gap-2 w-full items-center justify-center p-3 rounded-[10px] bg-purple-500 mb-5 ">
-          <LogIn className="w-5 h-5" />
-          <span>Sign in</span>
+          <button
+            type="submit"
+            disabled={loading}
+            className="hover:cursor-pointer hover:bg-purple-700 text-white flex gap-2 w-full items-center justify-center p-3 rounded-[10px] bg-purple-500 mb-5 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <LogIn className="w-5 h-5" />
+            <span>{loading ? "Signing in..." : "Sign in"}</span>
           </button>
           <p className="text-[1.2rem] text-gray-500 text-center">
             Don't have an account?{" "}
-           <Link to='/signup'> <span className="text-purple-500">Sign up</span></Link>
+            <Link to="/signup">
+              <span className="text-purple-500">Sign up</span>
+            </Link>
           </p>
         </form>
       </div>

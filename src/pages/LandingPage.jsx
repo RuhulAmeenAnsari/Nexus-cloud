@@ -37,9 +37,11 @@ function LandingPage() {
                     <span>Get Started</span>
                   </button>
                 </Link>
-                <button className="rounded-4xl px-5 py-3 mt-10 hover:cursor-pointer hover:bg-purple-600 hover:text-white text-l font-bold text-purple-600  w-44 bg-transparent border-2 border-purple-600 ">
-                  Browse Games
-                </button>
+                <Link to="/games">
+                  <button className="rounded-4xl px-5 py-3 mt-10 hover:cursor-pointer hover:bg-purple-600 hover:text-white text-l font-bold text-purple-600  w-44 bg-transparent border-2 border-purple-600 ">
+                    Browse Games
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

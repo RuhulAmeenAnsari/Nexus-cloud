@@ -27,76 +27,76 @@ import { DivideIcon as LucideIcon, Sword, Trophy, Brain, Crosshair, Gamepad2, Cl
 
 
 export const categories = [
- {
-   id: 1,
-   name: "Action",
-   icon: Sword,
-   description: "Fast-paced games focused on combat and reflexes",
-   image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80"
- },
- {
-   id: 2, 
-   name: "RPG",
-   icon: Trophy,
-   description: "Story-rich adventures with character progression",
-   image: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&q=80"
- },
- {
-   id: 3,
-   name: "Strategy", 
-   icon: Brain,
-   description: "Test your tactical and strategic thinking",
-   image: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&q=80"
- },
- {
-   id: 4,
-   name: "FPS",
-   icon: Crosshair, 
-   description: "Competitive first-person shooter games",
-   image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80"
- },
- {
-   id: 5,
-   name: "Sports",
-   icon: Gamepad2,
-   description: "Competitive sports games",
-   image: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&q=80"
- },
- {
-   id: 6,
-   name: "Casual",
-   icon: Clock,
-   description: "Relaxing games for all skill levels",
-   image: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&q=80"
- },
- {
-   id: 7,
-   name: "Racing",
-   icon: Car,
-   description: "High-speed racing and driving simulations",
-   image: "https://images.unsplash.com/photo-1511994298241-608e28f14fde?auto=format&fit=crop&q=80"
- },
- {
-   id: 8, 
-   name: "Open World",
-   icon: Globe,
-   description: "Vast explorable worlds with freedom of choice",
-   image: "https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?auto=format&fit=crop&q=80"
- },
- {
-   id: 9,
-   name: "Horror",
-   icon: Ghost,
-   description: "Survival horror and psychological thrillers",
-   image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80"
- },
- {
-   id: 10,
-   name: "Sci-Fi",
-   icon: Rocket,
-   description: "Futuristic and space-themed adventures",
-   image: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&q=80"
- }
+  {
+    id: 1,
+    name: "Action",
+    icon: Sword,
+    description: "Fast-paced games focused on combat and reflexes",
+    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80"
+  },
+  {
+    id: 2,
+    name: "RPG",
+    icon: Trophy,
+    description: "Story-rich adventures with character progression",
+    image: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&q=80"
+  },
+  {
+    id: 3,
+    name: "Strategy",
+    icon: Brain,
+    description: "Test your tactical and strategic thinking",
+    image: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&q=80"
+  },
+  {
+    id: 4,
+    name: "FPS",
+    icon: Crosshair,
+    description: "Competitive first-person shooter games",
+    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80"
+  },
+  {
+    id: 5,
+    name: "Sports",
+    icon: Gamepad2,
+    description: "Competitive sports games",
+    image: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&q=80"
+  },
+  {
+    id: 6,
+    name: "Casual",
+    icon: Clock,
+    description: "Relaxing games for all skill levels",
+    image: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&q=80"
+  },
+  {
+    id: 7,
+    name: "Racing",
+    icon: Car,
+    description: "High-speed racing and driving simulations",
+    image: "https://images.unsplash.com/photo-1511994298241-608e28f14fde?auto=format&fit=crop&q=80"
+  },
+  {
+    id: 8,
+    name: "Open World",
+    icon: Globe,
+    description: "Vast explorable worlds with freedom of choice",
+    image: "https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?auto=format&fit=crop&q=80"
+  },
+  {
+    id: 9,
+    name: "Horror",
+    icon: Ghost,
+    description: "Survival horror and psychological thrillers",
+    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80"
+  },
+  {
+    id: 10,
+    name: "Sci-Fi",
+    icon: Rocket,
+    description: "Futuristic and space-themed adventures",
+    image: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&q=80"
+  }
 ];
 
 export const games = [
@@ -867,8 +867,8 @@ export const games = [
     publisher: "ConcernedApe",
     releaseDate: "Feb 26, 2016",
     category: "Casual"
-},
-{
+  },
+  {
     id: 62,
     title: "The Sims 4",
     description: "A life simulation game where players create and control people, build homes, and shape the lives of characters.",
@@ -884,8 +884,8 @@ export const games = [
     publisher: "Electronic Arts",
     releaseDate: "Sep 2, 2014",
     category: "Casual"
-},
-{
+  },
+  {
     id: 63,
     title: "Animal Crossing: New Horizons",
     description: "A life simulation game where you build your dream island, decorate, and interact with charming animal residents.",
@@ -901,8 +901,8 @@ export const games = [
     publisher: "Nintendo",
     releaseDate: "Mar 20, 2020",
     category: "Casual"
-},
-{
+  },
+  {
     id: 64,
     title: "Tetris Effect",
     description: "A mesmerizing take on the classic puzzle game, featuring stunning visuals and music.",
@@ -918,8 +918,8 @@ export const games = [
     publisher: "Enhance Games",
     releaseDate: "Nov 9, 2018",
     category: "Casual"
-},
-{
+  },
+  {
     id: 65,
     title: "Candy Crush Saga",
     description: "Match colorful candies to progress through various levels in this addictive puzzle game.",
@@ -935,8 +935,8 @@ export const games = [
     publisher: "King",
     releaseDate: "Apr 12, 2012",
     category: "Casual"
-},
-{
+  },
+  {
     id: 66,
     title: "FarmVille 2",
     description: "A casual farming simulation game where players can grow crops, raise animals, and build their farm.",
@@ -952,8 +952,8 @@ export const games = [
     publisher: "Zynga",
     releaseDate: "Oct 9, 2012",
     category: "Casual"
-},
-{
+  },
+  {
     id: 67,
     title: "Farm Frenzy",
     description: "A farming simulation game where you run a farm and complete tasks to grow your farm into a successful business.",
@@ -969,8 +969,8 @@ export const games = [
     publisher: "Alawar Entertainment",
     releaseDate: "Jul 2, 2007",
     category: "Casual"
-},
-{
+  },
+  {
     id: 68,
     title: "Bubble Shooter",
     description: "Pop bubbles of matching colors to clear the screen in this classic arcade-style casual game.",
@@ -986,8 +986,8 @@ export const games = [
     publisher: "Ilyon Dynamics",
     releaseDate: "Sep 28, 2015",
     category: "Casual"
-},
-{
+  },
+  {
     id: 69,
     title: "Monument Valley",
     description: "A visually stunning puzzle game where you guide a character through impossible architecture and optical illusions.",
@@ -1003,160 +1003,160 @@ export const games = [
     publisher: "ustwo games",
     releaseDate: "Apr 3, 2014",
     category: "Casual"
-},
-{
-  id: 70,
-  title: "Need for Speed: Heat",
-  description: "Race through the streets of Palm City, completing missions and competing in street races to earn respect and rewards.",
-  rating: 4.6,
-  players: "500K",
-  genre: "Racing",
-  image: "https://images.unsplash.com/photo-1587314561026-bc78070e6e34?auto=format&fit=crop&q=80",
-  screenshots: [
-    "https://images.unsplash.com/photo-1587314561018-f3020b828960?auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1587314560968-9a35ed72a7b9?auto=format&fit=crop&q=80"
-  ],
-  developer: "Ghost Games",
-  publisher: "Electronic Arts",
-  releaseDate: "Nov 8, 2019",
-  category: "Racing"
-},
-{
-  id: 71,
-  title: "Forza Horizon 4",
-  description: "An open-world racing game featuring a dynamic weather system and a vast variety of cars to race through Britain.",
-  rating: 4.7,
-  players: "600K",
-  genre: "Racing",
-  image: "https://images.unsplash.com/photo-1587314560915-1fd29caaac67?auto=format&fit=crop&q=80",
-  screenshots: [
-    "https://images.unsplash.com/photo-1587314560855-2c2c9730d3d0?auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1587314560892-5a63e5d4b8eb?auto=format&fit=crop&q=80"
-  ],
-  developer: "Playground Games",
-  publisher: "Microsoft Studios",
-  releaseDate: "Oct 2, 2018",
-  category: "Racing"
-},
-{
-  id: 72,
-  title: "Mario Kart 8 Deluxe",
-  description: "A fun and fast-paced kart racing game where players race through various Mario-themed tracks, using power-ups and speed boosts.",
-  rating: 4.8,
-  players: "1M",
-  genre: "Racing",
-  image: "https://images.unsplash.com/photo-1587314560990-2b788f2f5a5a?auto=format&fit=crop&q=80",
-  screenshots: [
-    "https://images.unsplash.com/photo-1587314560950-e76ca96ea50c?auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1587314560890-62a14a5a748b?auto=format&fit=crop&q=80"
-  ],
-  developer: "Nintendo EPD",
-  publisher: "Nintendo",
-  releaseDate: "Apr 28, 2017",
-  category: "Racing"
-},
-{
-  id: 73,
-  title: "Gran Turismo 7",
-  description: "A highly realistic racing simulator offering a wide variety of cars and tracks from around the world.",
-  rating: 4.7,
-  players: "400K",
-  genre: "Racing",
-  image: "https://images.unsplash.com/photo-1587314560956-839f93bc0705?auto=format&fit=crop&q=80",
-  screenshots: [
-    "https://images.unsplash.com/photo-1587314560913-418f3d198f7f?auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1587314560998-faf1202951a7?auto=format&fit=crop&q=80"
-  ],
-  developer: "Polyphony Digital",
-  publisher: "Sony Interactive Entertainment",
-  releaseDate: "Mar 4, 2022",
-  category: "Racing"
-},
-{
-  id: 74,
-  title: "Dirt Rally 2.0",
-  description: "A rally racing game offering intense off-road racing through mud, snow, and gravel.",
-  rating: 4.6,
-  players: "300K",
-  genre: "Racing",
-  image: "https://images.unsplash.com/photo-1587314560923-f4621715e018?auto=format&fit=crop&q=80",
-  screenshots: [
-    "https://images.unsplash.com/photo-1587314560901-e6516a1c20a1?auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1587314560954-16f10a9849f7?auto=format&fit=crop&q=80"
-  ],
-  developer: "Codemasters",
-  publisher: "Codemasters",
-  releaseDate: "Feb 26, 2019",
-  category: "Racing"
-},
-{
-  id: 75,
-  title: "Need for Speed: Most Wanted",
-  description: "An arcade-style street racing game featuring illegal street races, car customization, and intense police chases.",
-  rating: 4.8,
-  players: "900K",
-  genre: "Racing",
-  image: "https://images.unsplash.com/photo-1587314560849-7f58e1b4b09c?auto=format&fit=crop&q=80",
-  screenshots: [
-    "https://images.unsplash.com/photo-1587314560894-13f4e5ea5b27?auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1587314560869-ff9b8b720d1a?auto=format&fit=crop&q=80"
-  ],
-  developer: "Criterion Games",
-  publisher: "Electronic Arts",
-  releaseDate: "Oct 30, 2012",
-  category: "Racing"
-},
-{
-  id: 76,
-  title: "F1 2020",
-  description: "The official game of the 2020 FIA Formula One World Championship, featuring realistic racing, tracks, and teams.",
-  rating: 4.6,
-  players: "500K",
-  genre: "Racing",
-  image: "https://images.unsplash.com/photo-1587314560991-e9fa3d6ab3a3?auto=format&fit=crop&q=80",
-  screenshots: [
-    "https://images.unsplash.com/photo-1587314561017-0e13acb1c3b9?auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1587314560912-4d0e1adf5691?auto=format&fit=crop&q=80"
-  ],
-  developer: "Codemasters",
-  publisher: "Codemasters",
-  releaseDate: "Jul 10, 2020",
-  category: "Racing"
-},
-{
-  id: 77,
-  title: "Burnout Paradise Remastered",
-  description: "A high-speed, crash-heavy open-world racing game with exhilarating takedowns and destructive gameplay.",
-  rating: 4.7,
-  players: "700K",
-  genre: "Racing",
-  image: "https://images.unsplash.com/photo-1587314560941-0361d8cfc378?auto=format&fit=crop&q=80",
-  screenshots: [
-    "https://images.unsplash.com/photo-1587314560964-8b0c7a3ab5ba?auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1587314560857-064fd45a47b1?auto=format&fit=crop&q=80"
-  ],
-  developer: "Criterion Games",
-  publisher: "Electronic Arts",
-  releaseDate: "Mar 16, 2018",
-  category: "Racing"
-},
-{
-  id: 78,
-  title: "TrackMania Turbo",
-  description: "A fast-paced racing game featuring crazy tracks, vibrant environments, and exhilarating speed.",
-  rating: 4.5,
-  players: "300K",
-  genre: "Racing",
-  image: "https://images.unsplash.com/photo-1587314560917-d54bcff8ff96?auto=format&fit=crop&q=80",
-  screenshots: [
-    "https://images.unsplash.com/photo-1587314560927-bc1ca8b5b602?auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1587314560889-faf23b68db76?auto=format&fit=crop&q=80"
-  ],
-  developer: "Nadeo",
-  publisher: "Ubisoft",
-  releaseDate: "Mar 24, 2016",
-  category: "Racing"
-}
+  },
+  {
+    id: 70,
+    title: "Need for Speed: Heat",
+    description: "Race through the streets of Palm City, completing missions and competing in street races to earn respect and rewards.",
+    rating: 4.6,
+    players: "500K",
+    genre: "Racing",
+    image: "https://images.unsplash.com/photo-1587314561026-bc78070e6e34?auto=format&fit=crop&q=80",
+    screenshots: [
+      "https://images.unsplash.com/photo-1587314561018-f3020b828960?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1587314560968-9a35ed72a7b9?auto=format&fit=crop&q=80"
+    ],
+    developer: "Ghost Games",
+    publisher: "Electronic Arts",
+    releaseDate: "Nov 8, 2019",
+    category: "Racing"
+  },
+  {
+    id: 71,
+    title: "Forza Horizon 4",
+    description: "An open-world racing game featuring a dynamic weather system and a vast variety of cars to race through Britain.",
+    rating: 4.7,
+    players: "600K",
+    genre: "Racing",
+    image: "https://images.unsplash.com/photo-1587314560915-1fd29caaac67?auto=format&fit=crop&q=80",
+    screenshots: [
+      "https://images.unsplash.com/photo-1587314560855-2c2c9730d3d0?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1587314560892-5a63e5d4b8eb?auto=format&fit=crop&q=80"
+    ],
+    developer: "Playground Games",
+    publisher: "Microsoft Studios",
+    releaseDate: "Oct 2, 2018",
+    category: "Racing"
+  },
+  {
+    id: 72,
+    title: "Mario Kart 8 Deluxe",
+    description: "A fun and fast-paced kart racing game where players race through various Mario-themed tracks, using power-ups and speed boosts.",
+    rating: 4.8,
+    players: "1M",
+    genre: "Racing",
+    image: "https://images.unsplash.com/photo-1587314560990-2b788f2f5a5a?auto=format&fit=crop&q=80",
+    screenshots: [
+      "https://images.unsplash.com/photo-1587314560950-e76ca96ea50c?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1587314560890-62a14a5a748b?auto=format&fit=crop&q=80"
+    ],
+    developer: "Nintendo EPD",
+    publisher: "Nintendo",
+    releaseDate: "Apr 28, 2017",
+    category: "Racing"
+  },
+  {
+    id: 73,
+    title: "Gran Turismo 7",
+    description: "A highly realistic racing simulator offering a wide variety of cars and tracks from around the world.",
+    rating: 4.7,
+    players: "400K",
+    genre: "Racing",
+    image: "https://images.unsplash.com/photo-1587314560956-839f93bc0705?auto=format&fit=crop&q=80",
+    screenshots: [
+      "https://images.unsplash.com/photo-1587314560913-418f3d198f7f?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1587314560998-faf1202951a7?auto=format&fit=crop&q=80"
+    ],
+    developer: "Polyphony Digital",
+    publisher: "Sony Interactive Entertainment",
+    releaseDate: "Mar 4, 2022",
+    category: "Racing"
+  },
+  {
+    id: 74,
+    title: "Dirt Rally 2.0",
+    description: "A rally racing game offering intense off-road racing through mud, snow, and gravel.",
+    rating: 4.6,
+    players: "300K",
+    genre: "Racing",
+    image: "https://images.unsplash.com/photo-1587314560923-f4621715e018?auto=format&fit=crop&q=80",
+    screenshots: [
+      "https://images.unsplash.com/photo-1587314560901-e6516a1c20a1?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1587314560954-16f10a9849f7?auto=format&fit=crop&q=80"
+    ],
+    developer: "Codemasters",
+    publisher: "Codemasters",
+    releaseDate: "Feb 26, 2019",
+    category: "Racing"
+  },
+  {
+    id: 75,
+    title: "Need for Speed: Most Wanted",
+    description: "An arcade-style street racing game featuring illegal street races, car customization, and intense police chases.",
+    rating: 4.8,
+    players: "900K",
+    genre: "Racing",
+    image: "https://images.unsplash.com/photo-1587314560849-7f58e1b4b09c?auto=format&fit=crop&q=80",
+    screenshots: [
+      "https://images.unsplash.com/photo-1587314560894-13f4e5ea5b27?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1587314560869-ff9b8b720d1a?auto=format&fit=crop&q=80"
+    ],
+    developer: "Criterion Games",
+    publisher: "Electronic Arts",
+    releaseDate: "Oct 30, 2012",
+    category: "Racing"
+  },
+  {
+    id: 76,
+    title: "F1 2020",
+    description: "The official game of the 2020 FIA Formula One World Championship, featuring realistic racing, tracks, and teams.",
+    rating: 4.6,
+    players: "500K",
+    genre: "Racing",
+    image: "https://images.unsplash.com/photo-1587314560991-e9fa3d6ab3a3?auto=format&fit=crop&q=80",
+    screenshots: [
+      "https://images.unsplash.com/photo-1587314561017-0e13acb1c3b9?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1587314560912-4d0e1adf5691?auto=format&fit=crop&q=80"
+    ],
+    developer: "Codemasters",
+    publisher: "Codemasters",
+    releaseDate: "Jul 10, 2020",
+    category: "Racing"
+  },
+  {
+    id: 77,
+    title: "Burnout Paradise Remastered",
+    description: "A high-speed, crash-heavy open-world racing game with exhilarating takedowns and destructive gameplay.",
+    rating: 4.7,
+    players: "700K",
+    genre: "Racing",
+    image: "https://images.unsplash.com/photo-1587314560941-0361d8cfc378?auto=format&fit=crop&q=80",
+    screenshots: [
+      "https://images.unsplash.com/photo-1587314560964-8b0c7a3ab5ba?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1587314560857-064fd45a47b1?auto=format&fit=crop&q=80"
+    ],
+    developer: "Criterion Games",
+    publisher: "Electronic Arts",
+    releaseDate: "Mar 16, 2018",
+    category: "Racing"
+  },
+  {
+    id: 78,
+    title: "TrackMania Turbo",
+    description: "A fast-paced racing game featuring crazy tracks, vibrant environments, and exhilarating speed.",
+    rating: 4.5,
+    players: "300K",
+    genre: "Racing",
+    image: "https://images.unsplash.com/photo-1587314560917-d54bcff8ff96?auto=format&fit=crop&q=80",
+    screenshots: [
+      "https://images.unsplash.com/photo-1587314560927-bc1ca8b5b602?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1587314560889-faf23b68db76?auto=format&fit=crop&q=80"
+    ],
+    developer: "Nadeo",
+    publisher: "Ubisoft",
+    releaseDate: "Mar 24, 2016",
+    category: "Racing"
+  }
 
 
 ];
@@ -1167,6 +1167,5 @@ export const games = [
 
 
 const getGamesByCategory = (categoryName) => {
-    return games.filter(game => game.category.toLowerCase() === categoryName.toLowerCase());
-  };
-  
+  return games.filter(game => game.category.toLowerCase() === categoryName.toLowerCase());
+};
