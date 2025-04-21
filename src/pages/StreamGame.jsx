@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import GameStream from "../components/GameStream";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
+import { games } from "../data/game";
 
 const StreamGame = () => {
   const { gameId } = useParams();
@@ -21,13 +22,14 @@ const StreamGame = () => {
       setError(null);
       console.log(`Fetching game data for ID: ${gameId}`);
 
-      // Validate gameId format - allow both string and numeric IDs
-      if (!gameId) {
-        setError("Game ID is required");
-        setIsLoading(false);
+      // First check if this is the 2048 game in our local games data
+      const localGame = games.find(g => g.id.toString() === gameId);
+      if (localGame && localGame.title === "2048 Game" && localGame.gameUrl) {
+        window.location.href = localGame.gameUrl;
         return;
       }
 
+      // If not 2048 game, fetch from API
       const response = await axios.get(
         `http://localhost:8080/api/games/${gameId}`,
         {
@@ -43,25 +45,10 @@ const StreamGame = () => {
       }
     } catch (error) {
       console.error("Error fetching game data:", error);
-
-      if (error.code === "ERR_NETWORK") {
-        setError(
-          "Cannot connect to game server. Please make sure the server is running."
-        );
-      } else if (error.response?.status === 404) {
-        setError(
-          `Game '${gameId}' not found. Please check the game identifier.`
-        );
-      } else {
-        setError(error.response?.data?.message || "Failed to load game data");
-      }
-
-      // Retry logic
+      setError("Failed to fetch game data");
       if (retryCount < maxRetries) {
-        console.log(`Retrying... (${retryCount + 1}/${maxRetries})`);
-        setTimeout(() => {
-          setRetryCount((prev) => prev + 1);
-        }, 2000); // Retry after 2 seconds
+        setRetryCount((prev) => prev + 1);
+        setTimeout(fetchGameData, 2000);
       }
     } finally {
       setIsLoading(false);
@@ -69,43 +56,8 @@ const StreamGame = () => {
   };
 
   useEffect(() => {
-    if (gameId) {
-      fetchGameData();
-    }
-  }, [gameId, retryCount]);
-
-  const handleRetry = () => {
-    setRetryCount(0); // Reset retry count
     fetchGameData();
-  };
-
-  if (error) {
-    return (
-      <div className="min-h-screen bg-gray-900 text-white p-8">
-        <div className="max-w-4xl mx-auto">
-          <button
-            onClick={() => navigate(-1)}
-            className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-8"
-          >
-            <ArrowLeft size={20} />
-            <span>Back</span>
-          </button>
-          <div className="bg-red-600/20 border border-red-600 rounded-lg p-4">
-            <h2 className="text-xl font-semibold mb-2">Error</h2>
-            <p>{error}</p>
-            {retryCount < maxRetries && (
-              <button
-                onClick={handleRetry}
-                className="mt-4 px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition-colors"
-              >
-                Retry Connection
-              </button>
-            )}
-          </div>
-        </div>
-      </div>
-    );
-  }
+  }, [gameId]);
 
   if (isLoading || !game) {
     return (

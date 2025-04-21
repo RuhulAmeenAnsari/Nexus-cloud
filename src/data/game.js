@@ -14,6 +14,7 @@ import { DivideIcon as LucideIcon, Sword, Trophy, Brain, Crosshair, Gamepad2, Cl
  * @property {string} publisher
  * @property {string} releaseDate
  * @property {string} category
+ * @property {string} gameUrl
  */
 
 /**
@@ -1156,9 +1157,25 @@ export const games = [
     publisher: "Ubisoft",
     releaseDate: "Mar 24, 2016",
     category: "Racing"
+  },
+  {
+    id: 79,
+    title: "2048 Game",
+    description: "A popular sliding tile puzzle game where you combine matching numbers to reach the 2048 tile.",
+    rating: 4.5,
+    players: "1M",
+    genre: "Puzzle",
+    image: "https://images.unsplash.com/photo-1587314560941-0361d8cfc378?auto=format&fit=crop&q=80",
+    screenshots: [
+      "https://images.unsplash.com/photo-1587314560964-8b0c7a3ab5ba?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1587314560857-064fd45a47b1?auto=format&fit=crop&q=80"
+    ],
+    developer: "Gabriele Cirulli",
+    publisher: "Independent",
+    releaseDate: "Mar 9, 2014",
+    category: "Puzzle",
+    gameUrl: "https://d3mbc95wh3h1vl.cloudfront.net/"
   }
-
-
 ];
 
 
