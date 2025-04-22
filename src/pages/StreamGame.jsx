@@ -13,130 +13,95 @@ const StreamGame = () => {
   const [game, setGame] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [retryCount, setRetryCount] = useState(0);
-  const maxRetries = 3;
-
-  const fetchGameData = async () => {
-    try {
-      setIsLoading(true);
-      setError(null);
-      console.log(`Fetching game data for ID: ${gameId}`);
-
-      // First check if this is the 2048 game in our local games data
-      const localGame = games.find(g => g.id.toString() === gameId);
-      if (localGame && localGame.title === "2048 Game" && localGame.gameUrl) {
-        window.location.href = localGame.gameUrl;
-        return;
-      }
-
-      // If not 2048 game, fetch from API
-      const response = await axios.get(
-        `http://localhost:8080/api/games/${gameId}`,
-        {
-          timeout: 5000, // 5 second timeout
-        }
-      );
-
-      if (response.data) {
-        console.log("Game data received:", response.data);
-        setGame(response.data);
-      } else {
-        setError("Game not found");
-      }
-    } catch (error) {
-      console.error("Error fetching game data:", error);
-      setError("Failed to fetch game data");
-      if (retryCount < maxRetries) {
-        setRetryCount((prev) => prev + 1);
-        setTimeout(fetchGameData, 2000);
-      }
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
   useEffect(() => {
-    fetchGameData();
-  }, [gameId]);
+    // Check if user is logged in
+    if (!user) {
+      alert("Please login to play games");
+      navigate("/login");
+      return;
+    }
 
-  if (isLoading || !game) {
+    const fetchGameDetails = async () => {
+      try {
+        setIsLoading(true);
+        
+        // First check if this is the 2048 game in our local games data
+        const localGame = games.find(g => g.id.toString() === gameId);
+        if (localGame && localGame.title === "2048 Game" && localGame.gameUrl) {
+          setGame(localGame);
+          setError(null);
+          setIsLoading(false);
+          window.location.href = localGame.gameUrl;
+          return;
+        }
+
+        // If not 2048 game, fetch from API
+        const response = await axios.get(
+          `http://localhost:8080/api/games/${gameId}`
+        );
+        setGame(response.data);
+        setError(null);
+      } catch (error) {
+        console.error("Error fetching game details:", error);
+        setError(
+          error.response?.data?.message || "Failed to load game details"
+        );
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    if (gameId) {
+      fetchGameDetails();
+    }
+  }, [gameId, user, navigate]);
+
+  if (isLoading) {
     return (
-      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+      <div className="min-h-screen pt-24 bg-gray-950 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
+      </div>
+    );
+  }
+
+  if (error || !game) {
+    return (
+      <div className="min-h-screen pt-24 bg-gray-950 flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-gray-400 text-xl">{error || "Game not found"}</p>
+          <button
+            onClick={() => navigate(-1)}
+            className="mt-4 flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors mx-auto"
+          >
+            <ArrowLeft className="w-5 h-5" />
+            <span>Go Back</span>
+          </button>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-900">
-      {/* Header */}
-      <div className="bg-gray-800 border-b border-gray-700">
-        <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <button
-                onClick={() => navigate(-1)}
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                <ArrowLeft size={20} />
-              </button>
-              <h1 className="text-xl font-semibold text-white">{game.name}</h1>
-            </div>
-            <div className="flex items-center gap-4">
-              {game.streamingConfig && (
-                <span className="text-gray-400">
-                  {game.streamingConfig.width}x{game.streamingConfig.height} @
-                  {game.streamingConfig.fps}fps
-                </span>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
+    <div className="min-h-screen pt-24 bg-gray-950">
+      <div className="px-6 md:px-16 lg:px-28">
+        {/* Back Button */}
+        <button
+          onClick={() => navigate(-1)}
+          className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-8"
+        >
+          <ArrowLeft className="w-5 h-5" />
+          <span>Back</span>
+        </button>
 
-      {/* Game Stream */}
-      <div className="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
-        <div className="aspect-video bg-black rounded-lg overflow-hidden">
-          <GameStream gameId={game.id} executablePath={game.executablePath} />
-        </div>
-
-        {/* Game Info */}
-        <div className="mt-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-2">
-            <h2 className="text-xl font-semibold text-white mb-4">
-              Game Settings
-            </h2>
-            <div className="bg-gray-800 rounded-lg p-4">
-              <dl className="space-y-2">
-                <div>
-                  <dt className="text-gray-400">Game ID</dt>
-                  <dd className="text-white font-mono text-sm">{game.id}</dd>
-                </div>
-                {game.genre && (
-                  <div>
-                    <dt className="text-gray-400">Genre</dt>
-                    <dd className="text-white">{game.genre}</dd>
-                  </div>
-                )}
-              </dl>
-            </div>
-          </div>
-          <div className="space-y-4">
-            <div className="bg-gray-800 rounded-lg p-4">
-              <h3 className="text-lg font-medium text-white mb-2">
-                Stream Settings
-              </h3>
-              <dl className="space-y-2">
-                {game.streamingConfig &&
-                  Object.entries(game.streamingConfig).map(([key, value]) => (
-                    <div key={key}>
-                      <dt className="text-gray-400">{key}</dt>
-                      <dd className="text-white">{value}</dd>
-                    </div>
-                  ))}
-              </dl>
-            </div>
-          </div>
+        {/* Game Stream */}
+        <div className="aspect-video w-full bg-black rounded-lg overflow-hidden">
+          <iframe
+            src={game.streamUrl}
+            className="w-full h-full"
+            title={game.title}
+            allowFullScreen
+          />
         </div>
       </div>
     </div>

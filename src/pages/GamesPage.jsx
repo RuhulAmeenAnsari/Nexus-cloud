@@ -1,53 +1,75 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import "@fontsource/poppins";
-import { Star, Search } from "lucide-react";
+import { Star, Search, Filter } from "lucide-react";
 import { games } from "../data/game";
 
 function GamesPage() {
   const navigate = useNavigate();
-  const [searchQuery, setSearchQuery] = useState("");
+  const { user } = useAuth();
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedGenre, setSelectedGenre] = useState("All");
   const [filteredGames, setFilteredGames] = useState(games);
 
-  const handleSearch = (e) => {
-    const query = e.target.value.toLowerCase();
-    setSearchQuery(query);
-    const filtered = games.filter(
-      (game) =>
-        game.title.toLowerCase().includes(query) ||
-        game.genre.toLowerCase().includes(query)
-    );
+  const genres = ["All", ...new Set(games.map((game) => game.genre))];
+
+  useEffect(() => {
+    const filtered = games.filter((game) => {
+      const matchesSearch = game.title
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase());
+      const matchesGenre =
+        selectedGenre === "All" || game.genre === selectedGenre;
+      return matchesSearch && matchesGenre;
+    });
     setFilteredGames(filtered);
-  };
+  }, [searchTerm, selectedGenre]);
 
   const handlePlayNow = (gameId) => {
+    if (!user) {
+      alert("Please login to play games");
+      navigate("/login");
+      return;
+    }
     navigate(`/game/${gameId}`);
   };
 
   return (
-    <div className="min-h-screen pt-24 bg-gray-950">
-      <div className="px-6 md:px-16 lg:px-28">
-        <h1 className="text-3xl font-bold text-white font-poppins">
-          All Games
-        </h1>
-        <p className="font-poppins text-gray-400 mt-3">
-          Browse our complete collection of games
-        </p>
+    <div className="min-h-screen pt-24 bg-gray-950 px-6 md:px-16 lg:px-28">
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-4xl font-bold text-white mb-8">All Games</h1>
 
-        {/* Search Bar */}
-        <div className="relative mt-8">
-          <input
-            type="text"
-            placeholder="Search games..."
-            value={searchQuery}
-            onChange={handleSearch}
-            className="w-full bg-gray-900 text-white px-4 py-3 rounded-lg pl-12 focus:outline-none focus:ring-2 focus:ring-purple-500"
-          />
-          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+        {/* Search and Filter */}
+        <div className="flex flex-col md:flex-row gap-4 mb-8">
+          <div className="relative flex-1">
+            <input
+              type="text"
+              placeholder="Search games..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 pl-10 focus:outline-none focus:border-purple-500 text-white"
+            />
+            <Search className="absolute left-3 top-4 w-5 h-5 text-gray-500" />
+          </div>
+          <div className="relative">
+            <select
+              value={selectedGenre}
+              onChange={(e) => setSelectedGenre(e.target.value)}
+              className="w-full md:w-48 bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 pl-10 focus:outline-none focus:border-purple-500 text-white appearance-none"
+            >
+              {genres.map((genre) => (
+                <option key={genre} value={genre}>
+                  {genre}
+                </option>
+              ))}
+            </select>
+            <Filter className="absolute left-3 top-4 w-5 h-5 text-gray-500" />
+          </div>
         </div>
 
         {/* Games Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredGames.map((game) => (
             <div
               key={game.id}
@@ -66,41 +88,22 @@ function GamesPage() {
                   </span>
                 </div>
               </div>
-
-              <div className="p-6">
-                <div className="flex items-center justify-between">
-                  <h2 className="text-xl font-bold text-white">{game.title}</h2>
-                  <div className="flex items-center gap-1">
-                    <Star className="text-yellow-400 h-5 w-5" />
-                    <span className="text-white">{game.rating}</span>
-                  </div>
+              <div className="p-4">
+                <h3 className="text-lg font-bold text-white">{game.title}</h3>
+                <div className="flex items-center gap-1 mt-2">
+                  <Star className="text-yellow-400 w-4 h-4" />
+                  <span className="text-white text-sm">{game.rating}</span>
                 </div>
-                <p className="text-gray-400 mt-3 line-clamp-2">
-                  {game.description}
-                </p>
-                <div className="mt-4 flex items-center justify-between">
-                  <span className="text-gray-400 text-sm">
-                    {game.players} players
-                  </span>
-                  <button
-                    onClick={() => handlePlayNow(game.id)}
-                    className="bg-purple-500 text-white py-2 px-4 rounded-lg hover:bg-purple-600 transition-colors"
-                  >
-                    Play Now
-                  </button>
-                </div>
+                <button
+                  onClick={() => handlePlayNow(game.id)}
+                  className="w-full mt-4 bg-purple-500 text-white py-2 rounded-lg hover:bg-purple-600 transition-colors"
+                >
+                  {user ? "Play Now" : "Login to Play"}
+                </button>
               </div>
             </div>
           ))}
         </div>
-
-        {filteredGames.length === 0 && (
-          <div className="text-center mt-12">
-            <p className="text-gray-400 text-xl">
-              No games found matching your search.
-            </p>
-          </div>
-        )}
       </div>
     </div>
   );

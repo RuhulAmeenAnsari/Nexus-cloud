@@ -4,10 +4,12 @@ import "@fontsource/poppins";
 import { Star, ArrowLeft, Clock, Users, Calendar, Play, Trophy, Gamepad2, Globe, CalendarDays } from "lucide-react";
 import axios from "axios";
 import { games } from "../data/game";
+import { useAuth } from "../context/AuthContext";
 
 function GameDetails() {
   const { gameId } = useParams();
   const navigate = useNavigate();
+  const { user } = useAuth();
   const [game, setGame] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -54,6 +56,12 @@ function GameDetails() {
   }, [gameId]);
 
   const handlePlayNow = () => {
+    if (!user) {
+      alert("Please login to play games");
+      navigate("/login");
+      return;
+    }
+
     if (game.title === "2048 Game" && game.gameUrl) {
       window.location.href = game.gameUrl;
     } else {
@@ -161,7 +169,7 @@ function GameDetails() {
               className="w-full bg-purple-500 text-white py-4 rounded-lg hover:bg-purple-600 transition-colors text-lg font-semibold flex items-center justify-center gap-2"
             >
               <Play className="w-5 h-5" />
-              <span>Play Now</span>
+              <span>{user ? "Play Now" : "Login to Play"}</span>
             </button>
           </div>
 
