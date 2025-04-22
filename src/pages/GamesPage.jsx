@@ -4,26 +4,35 @@ import { useAuth } from "../context/AuthContext";
 import "@fontsource/poppins";
 import { Star, Search, Filter } from "lucide-react";
 import { games } from "../data/game";
+import Loader from "../components/Loader";
 
 function GamesPage() {
   const navigate = useNavigate();
   const { user } = useAuth();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedGenre, setSelectedGenre] = useState("All");
-  const [filteredGames, setFilteredGames] = useState(games);
+  const [filteredGames, setFilteredGames] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const genres = ["All", ...new Set(games.map((game) => game.genre))];
 
   useEffect(() => {
-    const filtered = games.filter((game) => {
-      const matchesSearch = game.title
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase());
-      const matchesGenre =
-        selectedGenre === "All" || game.genre === selectedGenre;
-      return matchesSearch && matchesGenre;
-    });
-    setFilteredGames(filtered);
+    // Simulate API loading time
+    setIsLoading(true);
+    const timer = setTimeout(() => {
+      const filtered = games.filter((game) => {
+        const matchesSearch = game.title
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase());
+        const matchesGenre =
+          selectedGenre === "All" || game.genre === selectedGenre;
+        return matchesSearch && matchesGenre;
+      });
+      setFilteredGames(filtered);
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
   }, [searchTerm, selectedGenre]);
 
   const handlePlayNow = (gameId) => {
@@ -34,6 +43,10 @@ function GamesPage() {
     }
     navigate(`/game/${gameId}`);
   };
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <div className="min-h-screen pt-24 bg-gray-950 px-6 md:px-16 lg:px-28">

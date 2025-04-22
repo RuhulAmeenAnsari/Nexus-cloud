@@ -5,6 +5,7 @@ import { Star, ArrowLeft, Clock, Users, Calendar, Play, Trophy, Gamepad2, Globe,
 import axios from "axios";
 import { games } from "../data/game";
 import { useAuth } from "../context/AuthContext";
+import Loader from "../components/Loader";
 
 function GameDetails() {
   const { gameId } = useParams();
@@ -70,11 +71,7 @@ function GameDetails() {
   };
 
   if (isLoading) {
-    return (
-      <div className="min-h-screen pt-24 bg-gray-950 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
-      </div>
-    );
+    return <Loader />;
   }
 
   if (error || !game) {

@@ -109,10 +109,11 @@ export const games = [
     rating: 4.5,
     players: "125K",
     genre: "RPG",
-    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80",
+    image: "https://image.api.playstation.com/vulcan/ap/rnd/202111/3013/cKZ4tKNFj9C00DYvXHDzKKxj.png",
     screenshots: [
-      "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&q=80"
+      "https://cdn.akamai.steamstatic.com/steam/apps/1091500/ss_b529b0abc43f55fc23fe8058eddb6e37c9629a6a.jpg",
+      "https://cdn.akamai.steamstatic.com/steam/apps/1091500/ss_872822c5e50dc71f345416098d46921f6c2e7433.jpg",
+      "https://cdn.akamai.steamstatic.com/steam/apps/1091500/ss_6cdb0f19a766ad76c1fd0a14e70f670124e549f4.jpg"
     ],
     developer: "CD Projekt Red",
     publisher: "CD Projekt",
@@ -126,10 +127,11 @@ export const games = [
     rating: 4.9,
     players: "500K",
     genre: "RPG",
-    image: "https://images.unsplash.com/photo-1570203587-739f8f9d9f8e?auto=format&fit=crop&q=80",
+    image: "https://image.api.playstation.com/vulcan/ap/rnd/202211/0711/kh4MUIuMmHlktOHar3lVl6rY.png",
     screenshots: [
-      "https://images.unsplash.com/photo-1569518038-651f9479a4c5?auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1569518199-15da51c0567f?auto=format&fit=crop&q=80"
+      "https://cdn.akamai.steamstatic.com/steam/apps/292030/ss_107600c1337accc09104f7a8aa7f275f23cad096.jpg",
+      "https://cdn.akamai.steamstatic.com/steam/apps/292030/ss_64eb760f9a2b67f6731a71cce3a8fb684b9af267.jpg",
+      "https://cdn.akamai.steamstatic.com/steam/apps/292030/ss_eda99e7f705a113d04ab2a7a36068cae8d3db06e.jpg"
     ],
     developer: "CD Projekt Red",
     publisher: "CD Projekt",
@@ -143,10 +145,11 @@ export const games = [
     rating: 4.7,
     players: "200K",
     genre: "RPG",
-    image: "https://images.unsplash.com/photo-1570525985-26ac55d3f0e7?auto=format&fit=crop&q=80",
+    image: "https://image.api.playstation.com/vulcan/img/rnd/202010/0114/8TgK9vqNR6mQHyKWDsKhLEh3.png",
     screenshots: [
-      "https://images.unsplash.com/photo-1569518135-e4c00e84a0ff?auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1570525970-e428c00d8d34?auto=format&fit=crop&q=80"
+      "https://cdn.akamai.steamstatic.com/steam/apps/637650/ss_c0118aa8b90f78227888e3af6d4ffe65b4791318.jpg",
+      "https://cdn.akamai.steamstatic.com/steam/apps/637650/ss_c399cafbf2fd8458c8cee286cfc75a0417c1a83b.jpg",
+      "https://cdn.akamai.steamstatic.com/steam/apps/637650/ss_dc55a4e395a511afc4b93d93e17a788372b69f38.jpg"
     ],
     developer: "Square Enix",
     publisher: "Square Enix",
@@ -160,10 +163,11 @@ export const games = [
     rating: 4.8,
     players: "500K",
     genre: "RPG",
-    image: "https://images.unsplash.com/photo-1614635175-97b348e71b7e?auto=format&fit=crop&q=80",
+    image: "https://image.api.playstation.com/vulcan/ap/rnd/202110/2000/phvVT0qZfcRms5qDAk0SI3CM.png",
     screenshots: [
-      "https://images.unsplash.com/photo-1614635184-cbcd6c5b1c51?auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1614635183-bf97449983c7?auto=format&fit=crop&q=80"
+      "https://cdn.akamai.steamstatic.com/steam/apps/1245620/ss_e80a907c2c43337e53316c71555c3c3035a1343e.jpg",
+      "https://cdn.akamai.steamstatic.com/steam/apps/1245620/ss_c372274833ae6e5437b952fa1979430546a43ad9.jpg",
+      "https://cdn.akamai.steamstatic.com/steam/apps/1245620/ss_9c3ee43c3bd8cfbf27b5091c1aa3265f1aac3c27.jpg"
     ],
     developer: "FromSoftware",
     publisher: "Bandai Namco Entertainment",
@@ -553,10 +557,11 @@ export const games = [
     rating: 4.9,
     players: "700K",
     genre: "Action",
-    image: "https://wallpaperaccess.com/full/120394.jpg",
+    image: "https://image.api.playstation.com/cdn/UP1004/CUSA00419_00/bTNSe7ok8eFVGeQByWYz7qYBAeZkJf7p.png",
     screenshots: [
-      "https://images.unsplash.com/photo-1587314560028-f07c5db5a5ae?auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1587314560060-dca70be4f021?auto=format&fit=crop&q=80"
+      "https://cdn.akamai.steamstatic.com/steam/apps/271590/ss_bab596ea9a6924055cd8c097bba75f052c18025d.jpg",
+      "https://cdn.akamai.steamstatic.com/steam/apps/271590/ss_cd721eb1856f0dd3b452711c5c3d9f524ae9f3e3.jpg",
+      "https://cdn.akamai.steamstatic.com/steam/apps/271590/ss_f64515607fd627aa9436be3df75b9b6c8cc9f046.jpg"
     ],
     developer: "Rockstar North",
     publisher: "Rockstar Games",
@@ -1012,10 +1017,11 @@ export const games = [
     rating: 4.6,
     players: "500K",
     genre: "Racing",
-    image: "https://images.unsplash.com/photo-1587314561026-bc78070e6e34?auto=format&fit=crop&q=80",
+    image: "https://image.api.playstation.com/vulcan/img/rnd/202111/0922/YiFFUoQaLyGGtB5UCFBEo3hn.png",
     screenshots: [
-      "https://images.unsplash.com/photo-1587314561018-f3020b828960?auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1587314560968-9a35ed72a7b9?auto=format&fit=crop&q=80"
+      "https://cdn.akamai.steamstatic.com/steam/apps/1222680/ss_06e6a4c2b19cd62d06651979fdb25e7ea182dbce.jpg",
+      "https://cdn.akamai.steamstatic.com/steam/apps/1222680/ss_9db45aa4bd9c1e9f09b6ce0f45f0f31ebf557651.jpg",
+      "https://cdn.akamai.steamstatic.com/steam/apps/1222680/ss_d1a4f0de9b08612cba9c653be7f0735a7785f55f.jpg"
     ],
     developer: "Ghost Games",
     publisher: "Electronic Arts",
@@ -1161,14 +1167,15 @@ export const games = [
   {
     id: 79,
     title: "2048 Game",
-    description: "A popular sliding tile puzzle game where you combine matching numbers to reach the 2048 tile.",
+    description: "A popular sliding tile puzzle game where you combine matching numbers to reach 2048.",
     rating: 4.5,
     players: "1M",
     genre: "Puzzle",
-    image: "https://images.unsplash.com/photo-1587314560941-0361d8cfc378?auto=format&fit=crop&q=80",
+    image: "https://play-lh.googleusercontent.com/g9ORjIejQJHwzJtKGGRkNk-S_QHvDtxe0DqxvDVEzBLtFGVGMzGYg2KdlQGVhE6AI_s=w526-h296-rw",
     screenshots: [
-      "https://images.unsplash.com/photo-1587314560964-8b0c7a3ab5ba?auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1587314560857-064fd45a47b1?auto=format&fit=crop&q=80"
+      "https://play-lh.googleusercontent.com/YN4nqEPu3A-w3gyS6YFqgUUzHmB2n-yLZzCOYyMqJhHABHJJeiKY6OZBTVsYODHGYUo=w2560-h1440-rw",
+      "https://play-lh.googleusercontent.com/q-mI_K7C2JvKue4aV0YP0oYFJ0357eHrMhqqOKoGv_UXEF9F5HrKYqxA4PJxmVF7=w2560-h1440-rw",
+      "https://play-lh.googleusercontent.com/WNxwzsC1HslV1bQBHlvw5nv_ACy9u8K1vodUz5JHZPvF6FHbO6SUJ5FLqQ9PA7eMtQ=w2560-h1440-rw"
     ],
     developer: "Gabriele Cirulli",
     publisher: "Independent",
