@@ -16,6 +16,7 @@ import { AuthProvider } from "./context/AuthContext";
 import AdminDashboard from "./pages/AdminDashboard";
 import GameForm from "./pages/GameForm";
 import StreamGame from "./pages/StreamGame";
+import ForgotPassword from "./pages/ForgotPassword";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<Loginpage />} />
             <Route path="/signup" element={<SignUpPage />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/home" element={<HomePage />} />
             <Route path="/search" element={<SearchResults />} />
             <Route path="/games" element={<GamesPage />} />
